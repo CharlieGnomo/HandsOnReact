@@ -37,9 +37,6 @@ class Header extends React.Component {
                     <div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="nav-link" to={`/`}>Home</Link>
-                            </li>
-                            <li className="nav-item">
                                 <Link className="nav-link" to={`/movies`}>Movies</Link>
                             </li>
                             <li className="nav-item">

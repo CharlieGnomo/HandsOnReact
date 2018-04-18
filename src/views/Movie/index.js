@@ -23,6 +23,18 @@ class Movie extends React.Component {
         this.setState({movie})
     }
 
+    loadComentarios(){
+
+    }
+    
+    loadRecomendados(){
+
+    }
+
+    loadSimilares(){
+
+    }
+
     render() {
         const { movie } = this.state
 
@@ -38,6 +50,9 @@ class Movie extends React.Component {
                     <footer className="col-md-4 offset-md-1 my-4 movie-poster" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie.poster_path})`}}>
 
                     </footer>
+                    <button onClick={this.loadSimilares}>Similares</button>
+                    <button onClick={this.loadRecomendados}>Recomendados</button>
+                    <button onClick={this.loadComentarios}>Comentarios</button>
                     <div className="col-md-6 my-4">
                         <header className="w-100">
                             <h1>{movie.title}</h1>

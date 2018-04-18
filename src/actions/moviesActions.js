@@ -9,6 +9,10 @@ export function loadMoviesFailure(){
     return { type: types.LOAD_MOVIES_FAILURE }
 }
 
+export function deleteMovieSuccess(id){
+    return { type: types.DELETE_MOVIE_SUCCESS, id}
+}
+
 export function loadMovies(page = 1, endpoint = 'popular'){
     return dispatch => {
         fetch(moviesURL[endpoint](page))
@@ -20,6 +24,12 @@ export function loadMovies(page = 1, endpoint = 'popular'){
             alert('We could not load the page at this time.')
         })
     }
+}
+
+
+
+export function deleteMovie(id){
+    deleteMovieSuccess(id);
 }
 
 

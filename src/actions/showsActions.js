@@ -9,6 +9,10 @@ export function loadShowsFailure(){
     return { type: types.LOAD_SHOWS_FAILURE }
 }
 
+export function deleteShowSuccess(id){
+    return { type: types.DELETE_SHOW_SUCCESS,id}
+}
+
 export function loadShows(page = 1, endpoint = 'popular'){
     return dispatch => {
         fetch(showsURL[endpoint](page))
@@ -20,6 +24,10 @@ export function loadShows(page = 1, endpoint = 'popular'){
             alert('We could not load the page at this time.')
         })
     }
+}
+
+export function deleteShow(id){
+    deleteShowSuccess(id);
 }
 
 

@@ -2,80 +2,55 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import MediaElem from '../../components/MediaElem'
-
-import * as moviesActions from '../../actions/moviesActions'
+import * as movieActions from '../../actions/movieActions'
 
 class Home extends React.Component {
     constructor(props) {
         super(props) 
 
         this.state = {
-            movies: [],
-            page: 1,
-            loadingMovies: false
+            movie: {},
         }
     }
 
     componentDidMount(){
-        const { movies } = this.state
-        const { moviesActions } = this.props
+        const { movie } = this.state
+        const { movieActions } = this.props
 
-        moviesActions.loadMovies()
+        movieActions.loadRandomMovie()
 
-        window.addEventListener("scroll", this.infiniteScroller, false);
-    }
-
-    infiniteScroller =  e => {
-        const { page } = this.state
-        const { moviesActions } = this.props
-        const scrollTop = window.scrollY
-        const trackLength = document.querySelector('body').scrollHeight - window.innerHeight
-        const pctScrolled = Math.floor(scrollTop/trackLength * 100)
-        if(pctScrolled > 95 && !this.state.loadingMovies) {
-            moviesActions.loadMovies(page)
-            this.setState({
-                loadingMovies: true
-            })
-        }
-    }
-
-    componentWillUnmount() {
-        // you need to unbind the same listener that was binded.
-        window.removeEventListener('scroll', this.infiniteScroller, false);
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.movies.length > this.state.movies.length) {
+        if(nextProps.movie.title !==  this.state.movie.title) {
             this.setState({
-                loadingMovies: false,
-                page: this.state.page + 1,
-                movies: nextProps.movies
+                movie: nextProps.movie
             })
         }
     }
 
     render () {
-        const { movies } = this.state
+        const { movie } = this.state
 
         return (
-            <section className="container main home">
+            <section className="container main movie" style={{backgroundImage: movie.id ? `url(https://image.tmdb.org/t/p/w342/${movie.backdrop_path})` : ''}}>
+                <div className="overlay"></div>
                 <header className="row">
                     <div className="col-12">
-                        <h1>Coming Soon</h1>
+                        <h1 style={{color: 'white'}}>{movie.id ? movie.title : 'Loading...'}</h1>
                     </div>
                 </header>
-                <div className="row movie-list-wrapper">
-                    {movies.map((movie, i) => {
-                        movie.link = "movies"
-                        return (
-                            <MediaElem
-                                key={i}
-                                {...movie}
-                            />
-                        )
-                    })}
-                </div>
+                <article className="row movie-item">
+                    <footer className="col-md-4 offset-md-1 my-4 movie-poster" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w342/${movie.poster_path})`}}>
+
+                    </footer>
+                    <div className="col-md-6 my-4">
+                        <header className="w-100">
+                            <h1>{movie.title}</h1>
+                        </header>
+                        <p className="d-block">{movie.overview}</p>
+                    </div>
+                </article>
             </section>
         )
     }
@@ -83,13 +58,13 @@ class Home extends React.Component {
 
 function mapStateToProps(state, ownProps){
     return {
-        movies: state.movies
+        movie: state.movie
     }
 }
 
 function mapDispatchToProps(dispatch){
     return {
-        moviesActions: bindActionCreators(moviesActions, dispatch),
+        movieActions: bindActionCreators(movieActions, dispatch),
     }
 }
 
