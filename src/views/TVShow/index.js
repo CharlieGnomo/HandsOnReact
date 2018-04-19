@@ -51,8 +51,19 @@ class TVShow extends React.Component {
 
     commentShow = e => {
         const com = document.querySelector('#contComment').value;
+        const user = document.querySelector('#userComment').value;
+        document.querySelector('#userComment').value="";
+        document.querySelector('#contComment').value="Añade un comentario";
         const { match,listActions } = this.props
-        listActions.comment(match.params.id,com, 'show');
+        listActions.comment(match.params.id,com,user, 'show');
+    }
+
+    onBlurComment = e => {
+        const com = document.querySelector('#contComment').value;
+        const user = document.querySelector('#userComment').value ? document.querySelector('#userComment').value : "DefaultUser";
+        const { match } = this.props
+        const obj = {mediaId: match.params.id, body: com, collection: 'show', user: user}
+        localStorage.setItem('comentario', obj);
     }
 
     render() {
@@ -64,10 +75,15 @@ class TVShow extends React.Component {
                 <header className="row">
                     <div className="col-12">
                         <h1 style={{color: 'white'}}>{show.id ? show.name : 'Loading...'}</h1>
+                        <div className="col-md-6 my-4 float-right">
+                            <button className="btn btn-primary" onClick={this.loadSimilares}>Similares</button>
+                            <button className="btn btn-primary" onClick={this.loadRecomendados}>Recomendados</button>
+                            <button className="btn btn-primary" onClick={this.loadComentarios}>Comentarios</button>
+                        </div>
                     </div>
                 </header>
                 <article className="row movie-item">
-                    <footer className="col-md-4 offset-md-1 my-4 movie-poster" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w342/${show.poster_path})`}}>
+                    <footer className="col-md-4 offset-md-1 my-4 movie-poster" style={show.poster_path ? {backgroundImage: `url(https://image.tmdb.org/t/p/w342/${show.poster_path})`}: null}>
 
                     </footer>
                     
@@ -77,21 +93,23 @@ class TVShow extends React.Component {
                         </header>
                         <p className="d-block">{show.overview}</p>
                     </div>
-                    <div className="col-md-6 my-4">
-                    <button onClick={this.loadSimilares}>Similares</button>
-                    <button onClick={this.loadRecomendados}>Recomendados</button>
-                    <button onClick={this.loadComentarios}>Comentarios</button>
-                    </div>
+                    
                 </article>
                 <article>
-                <div className="row movie-list-wrapper">
+                <input type="text" id="userComment" className="form-control" placeholder="Username"></input>
+                <textarea id="contComment" className="form-control comentario" defaultValue="Añade un comentario" onBlur={this.onBlurComment}></textarea>
+                <button onClick={this.commentShow} className="form-control">Comentar</button>
+                <h2 className="titleSection">{col}</h2>
+                <div className="row movie-list-wrapper sectionCont">
                         {
                             (list) ? 
                                 list.map((item, i) => {
                                     if(col==='comentarios'){
                                         return(
-                                            <p key={i} className="list-group-item comment">{(i+1)+'.- '+item.body}</p>
-                                            
+                                            <div key={i} className="list-group-item comment">
+                                                <p><span className="badge badge-primary">{(i+1)}</span><span className="userStyle">{item.user}</span></p>
+                                                <p>{item.body}</p>
+                                            </div>
                                         )
                                     }else{
                                         item.link = "shows"
@@ -106,8 +124,7 @@ class TVShow extends React.Component {
                                 ) : null
                         }
                     </div>
-                    <textarea id="contComment" className="form-control comentario">Añade un comentario</textarea>
-                    <button onClick={this.commentShow} className="form-control">Comentar</button>
+                    
                 </article>
             </section>
         )

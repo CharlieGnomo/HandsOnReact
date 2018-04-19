@@ -4,7 +4,36 @@
       "id": 1,
       "body": "some comment",
       "collection": "movie",
-      "mediaId": "354912"
+      "mediaId": "354912",
+      "user": "Charlie"
+    },
+    {
+      "mediaId": "354912",
+      "body": "Añade un comentario",
+      "collection": "movie",
+      "user": "Carlos",
+      "id": 2
+    },
+    {
+      "mediaId": "354912",
+      "body": "Añade un comentario bueno",
+      "collection": "movie",
+      "user": "Javi",
+      "id": 3
+    },
+    {
+      "mediaId": "1418",
+      "body": "Añade un comentario nbuue",
+      "collection": "show",
+      "user": "Charlie",
+      "id": 4
+    },
+    {
+      "mediaId": "1418",
+      "body": "Añade un comentario",
+      "collection": "show",
+      "user": "ggg",
+      "id": 5
     }
   ]
 }
