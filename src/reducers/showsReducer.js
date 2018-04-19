@@ -6,7 +6,7 @@ export default function showsReducer(state = initialState.shows, action){
     switch(action.type){
         case types.DELETE_SHOW_SUCCESS:
             _.remove(state, (o) => {
-                return o.id === action.id
+                return o.id == action.id
             });
             return [...state]
         case types.LOAD_SHOWS_SUCCESS:

@@ -105,6 +105,12 @@ class TVShows extends React.Component {
         return this.sortShows(filteredShows)
     }
 
+    deleteShow = e => {
+        const { showsActions } = this.props
+        const id = e.target.dataset.idel;
+        showsActions.deleteShow(id);
+    }
+
     render() {
         const { shows, nowViewing, sortBy, viewingThisYearOnly } = this.state
 
@@ -147,6 +153,7 @@ class TVShows extends React.Component {
                 <div className="row movie-list-wrapper">
                     {this.prepareShows(shows).map((show, i) => {
                         show.link = "shows"
+                        show.func = this.deleteShow;
                         return (
                             <MediaElem
                                 key={i}

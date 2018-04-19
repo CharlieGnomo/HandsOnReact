@@ -106,9 +106,15 @@ class Movies extends React.Component {
         return this.sortMovies(filteredMovies)
     }
 
+    deleteMovie = e => {
+        const { moviesActions } = this.props
+        const id = e.target.dataset.idel;
+        moviesActions.deleteMovie(id);
+    }
+
     render() {
         const { movies, nowViewing, sortBy, viewingThisYearOnly } = this.state
-
+        
         return (
             <section className="container main movies">
                 <header className="row">
@@ -148,6 +154,7 @@ class Movies extends React.Component {
                 <div className="row movie-list-wrapper">
                     {this.prepareMovies(movies).map((movie, i) => {
                         movie.link = "movies"
+                        movie.func = this.deleteMovie;
                         return (
                             <MediaElem
                                 key={i}
@@ -163,7 +170,8 @@ class Movies extends React.Component {
 
 function mapStateToProps(state, ownProps){
     return {
-        movies: state.movies
+        movies: state.movies,
+        id: state.id
     }
 }
 

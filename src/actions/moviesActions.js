@@ -26,10 +26,8 @@ export function loadMovies(page = 1, endpoint = 'popular'){
     }
 }
 
-
-
 export function deleteMovie(id){
-    deleteMovieSuccess(id);
+    return dispatch => dispatch(deleteMovieSuccess(id));
 }
 
 

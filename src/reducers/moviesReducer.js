@@ -6,7 +6,7 @@ export default function moviesReducer(state = initialState.movies, action){
     switch(action.type){
         case types.DELETE_MOVIE_SUCCESS:
             _.remove(state, (o) => {
-                return o.id === action.id
+                return o.id == action.id
             });
             return [...state]
         case types.LOAD_MOVIES_SUCCESS:

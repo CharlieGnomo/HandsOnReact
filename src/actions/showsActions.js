@@ -27,7 +27,7 @@ export function loadShows(page = 1, endpoint = 'popular'){
 }
 
 export function deleteShow(id){
-    deleteShowSuccess(id);
+    return dispatch => dispatch(deleteShowSuccess(id));
 }
 
 
