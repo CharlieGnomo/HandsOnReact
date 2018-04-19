@@ -24,8 +24,7 @@ export const showsURL = {
 
 export const listURL = {
         comentarios: (col,id) => {
-            const c = col ==='movie' ? 'movieId':'showId'
-            return `http://localhost:3010/comments?${c}=${id}`
+            return `http://localhost:3010/comments?col=${col}&mediaId=${id}`
         },
         comentariosPost: (col,id) => {
             return `http://localhost:3010/comments`

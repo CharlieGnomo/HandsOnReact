@@ -44,7 +44,7 @@ export function loadComments(collection,id){
 
 export function comment(id,commentary, collection){  
     let com;
-    collection ==='movie' ? com = {movieId: id, body: commentary}: com = {showId: id, body: commentary};
+    collection ==='movie' ? com = {mediaId: id, body: commentary, collection: collection}: com = {mediaId: id, body: commentary,collection: collection};
     localStorage.setItem('comentario', com);
 
     return dispatch => {
