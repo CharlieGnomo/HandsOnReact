@@ -7,6 +7,9 @@ export const moviesURL = {
     },
     popular: page => {
         return `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=${page}`
+    },
+    postDelMovie: id => {
+        return `http://localhost:3010/deletedFilms`
     }
 }
 
@@ -19,6 +22,9 @@ export const showsURL = {
     },
     popular: page => {
         return `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=${page}`
+    },
+    postDelShow: id => {
+        return `http://localhost:3010/deletedShows`
     }
 }
 

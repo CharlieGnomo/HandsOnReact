@@ -42,5 +42,9 @@
       "user": "qqqqq",
       "id": 6
     }
+  ],
+  "deletedFilms": [
+  ],
+  "deletedShows": [
   ]
 }
