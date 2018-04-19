@@ -43,8 +43,10 @@ export function loadComments(collection,id){
 }
 
 export function comment(id,commentary, collection){  
-    var com = {movieId: id, body: commentary};
+    let com;
+    collection ==='movie' ? com = {movieId: id, body: commentary}: com = {showId: id, body: commentary};
     localStorage.setItem('comentario', com);
+
     return dispatch => {
         fetch(listURL['comentariosPost'](collection,id), {
             method: 'post',
