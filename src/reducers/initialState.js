@@ -2,5 +2,6 @@ export default {
     movies: [],
     movie: {},
     shows: [],
-    show: {}
+    show: {},
+    list: []
 }
