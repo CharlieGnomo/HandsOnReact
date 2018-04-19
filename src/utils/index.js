@@ -27,6 +27,9 @@ export const listURL = {
             const c = col ==='movie' ? 'movieId':'showId'
             return `http://localhost:3010/comments?${c}=${id}`
         },
+        comentariosPost: (col,id) => {
+            return `http://localhost:3010/comments`
+        },
         similares: (col,id) => {
             console.log(`https://api.themoviedb.org/3/${col}/${id}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
             return `https://api.themoviedb.org/3/${col}/${id}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}`

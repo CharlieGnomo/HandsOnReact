@@ -49,6 +49,12 @@ class Movie extends React.Component {
         listActions.loadItems('movie',match.params.id,'similares');
     }
 
+    commentMovie = e => {
+        const com = document.querySelector('#contComment').value;
+        const { match,listActions } = this.props
+        listActions.comment(match.params.id,com, 'movie');
+    }
+
     render() {
         const { movie, list, col } = this.state
 
@@ -85,7 +91,7 @@ class Movie extends React.Component {
                                 list.map((item, i) => {
                                     if(col==='comentarios'){
                                         return(
-                                            <p key={i} className="list-group-item">{item.body}</p>
+                                            <p key={i} className="list-group-item comment">{(i+1)+'.- '+item.body}</p>
                                             
                                         )
                                     }else{
@@ -101,7 +107,8 @@ class Movie extends React.Component {
                                 ) : null
                         }
                     </div>
-                    <textarea className="form-control comentario">Añade un comentario</textarea>
+                    <textarea id="contComment" className="form-control comentario">Añade un comentario</textarea>
+                    <button onClick={this.commentMovie} className="form-control">Comentar</button>
                 </article>
             </section>
         )
