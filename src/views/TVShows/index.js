@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import _ from 'lodash'
@@ -23,7 +22,7 @@ class TVShows extends React.Component {
     }
 
     componentDidMount(){
-        const { shows, nowViewing, page } = this.state
+        const { nowViewing, page } = this.state
         const { showsActions } = this.props
 
         showsActions.loadShows(page, nowViewing)

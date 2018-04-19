@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import _ from 'lodash'
@@ -23,7 +23,7 @@ class Movies extends React.Component {
     }
 
     componentDidMount(){
-        const { movies, nowViewing, page } = this.state
+        const { nowViewing, page } = this.state
         const { moviesActions } = this.props
 
         moviesActions.loadMovies(page, nowViewing)

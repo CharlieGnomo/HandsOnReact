@@ -9,7 +9,6 @@ export default function moviesReducer(state = initialState.movies, action){
                 return o.id === action.id
             });
             return [...state]
-            break;
         case types.LOAD_MOVIES_SUCCESS:
             if(action.page === 1) {
                 return action.movies
@@ -20,7 +19,6 @@ export default function moviesReducer(state = initialState.movies, action){
                     ...action.movies,
                 ]
             }
-            break;
         default:
         return state
   }

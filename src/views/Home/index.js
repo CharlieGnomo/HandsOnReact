@@ -14,7 +14,6 @@ class Home extends React.Component {
     }
 
     componentDidMount(){
-        const { movie } = this.state
         const { movieActions } = this.props
 
         movieActions.loadRandomMovie()

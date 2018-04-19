@@ -9,7 +9,6 @@ export default function showsReducer(state = initialState.shows, action){
                 return o.id === action.id
             });
             return [...state]
-            break;
         case types.LOAD_SHOWS_SUCCESS:
             if(action.page === 1) {
                 return action.shows
@@ -20,7 +19,6 @@ export default function showsReducer(state = initialState.shows, action){
                     ...action.shows,
                 ]
             }
-            break;
         default:
         return state
   }
