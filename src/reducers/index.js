@@ -6,6 +6,7 @@ import movie from './movieReducer'
 import shows from './showsReducer'
 import show from './showReducer'
 import list from './listReducer'
+import search from './searchReducer'
 
 const rootReducer = combineReducers({
     movies, 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     shows,
     show,
     list,
+    search,
     router: routerReducer
 })
 

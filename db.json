@@ -41,10 +41,43 @@
       "collection": "movie",
       "user": "qqqqq",
       "id": 6
+    },
+    {
+      "mediaId": "299536",
+      "body": "Hola, me llamo francisco",
+      "collection": "movie",
+      "user": "Juan",
+      "id": 7
+    },
+    {
+      "mediaId": "1403",
+      "body": "Añade un comentario",
+      "collection": "show",
+      "user": "",
+      "id": 8
+    },
+    {
+      "mediaId": "1403",
+      "body": "Añade un comentario",
+      "collection": "show",
+      "user": "Julian",
+      "id": 9
     }
   ],
   "deletedFilms": [
+    {
+      "movieId": "447332",
+      "id": 1
+    },
+    {
+      "movieId": "321612",
+      "id": 2
+    }
   ],
   "deletedShows": [
+    {
+      "showId": "1418",
+      "id": 1
+    }
   ]
 }

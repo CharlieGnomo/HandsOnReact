@@ -43,3 +43,9 @@ export const listURL = {
             return `https://api.themoviedb.org/3/${col}/${id}/recommendations?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
         }
     }
+
+    export const searchURL = {
+        search: (text,page) => {
+            return `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_API_KEY}&query=${text}&page=${page}`
+        }
+    }

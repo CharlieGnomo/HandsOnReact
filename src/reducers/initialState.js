@@ -3,5 +3,6 @@ export default {
     movie: {},
     shows: [],
     show: {},
-    list: []
+    list: [],
+    search: []
 }
