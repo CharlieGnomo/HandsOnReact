@@ -8,8 +8,8 @@
   background-color: #343a40;
 
   img {
-    max-height: 150px;
     padding: 25px;
+    width: 11rem;
   }
 }
 
@@ -18,7 +18,7 @@
 }
 
 .img-thumbnail{
-  width: 4rem;
+  width: 6rem;
 }
 
 .hoverImgSearch{
@@ -26,5 +26,5 @@
 }
 
 .hoverImgSearch:hover{
-  width: 6rem;
+  width: 8rem;
 }

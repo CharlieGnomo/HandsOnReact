@@ -24,7 +24,11 @@ class TVShow extends React.Component {
         showActions.loadShow(match.params.id)
     }
 
-    componentWillReceiveProps({show, list}) {
+    componentWillReceiveProps({show, list, match}) {
+        const { showActions } = this.props
+        if(match.params.id !== this.props.match.params.id){
+            showActions.loadShow(match.params.id)
+        }
         this.setState({show, list})
     }
 

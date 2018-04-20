@@ -20,11 +20,15 @@ class Movie extends React.Component {
 
     componentDidMount(){
         const { movieActions, match } = this.props
-
+        console.log(match.params.id)
         movieActions.loadMovie(match.params.id)
     }
 
-    componentWillReceiveProps({movie, list}) {
+    componentWillReceiveProps({movie, list, match}) {
+        const { movieActions } = this.props
+        if(match.params.id !== this.props.match.params.id){
+            movieActions.loadMovie(match.params.id)
+        }
         this.setState({movie, list})
     }
 

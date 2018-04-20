@@ -62,6 +62,13 @@
       "collection": "show",
       "user": "Julian",
       "id": 9
+    },
+    {
+      "mediaId": "284054",
+      "body": "Madre mía que película",
+      "collection": "movie",
+      "user": "Julian",
+      "id": 10
     }
   ],
   "deletedFilms": [
@@ -72,12 +79,24 @@
     {
       "movieId": "321612",
       "id": 2
+    },
+    {
+      "movieId": "353486",
+      "id": 3
+    },
+    {
+      "movieId": "299536",
+      "id": 4
     }
   ],
   "deletedShows": [
     {
       "showId": "1418",
       "id": 1
+    },
+    {
+      "showId": "1403",
+      "id": 2
     }
   ]
 }

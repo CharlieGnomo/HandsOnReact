@@ -5,6 +5,10 @@
   height: 100vh;
   position: relative;
 
+  .form-control{
+    z-index:20;
+  }
+
   .overlay {
     position: absolute;
     left: 0;
@@ -19,6 +23,7 @@
     transition: 0.25s ease-out;
     padding-bottom: 25px;
   }
+
 
   .comment{
     width:70%;
