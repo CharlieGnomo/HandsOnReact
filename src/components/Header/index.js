@@ -35,6 +35,7 @@ class Header extends React.Component {
 
     render() {
         const { numberOfMovies, results } = this.state
+
         return (
             <div className="row">
             <header className="main-nav d-flex col-12" style={{flexDirection: 'column'}}>
@@ -58,14 +59,13 @@ class Header extends React.Component {
                         </ul>
                     </div>
                     <div className="float-right flexStyle">
-                        <input type="text" id="searchBox" className="form-control" placeholder="search"></input>
-                        <button type="button" id="searchBtn" onClick={this.onSearch} className="btn btn-primary">Search</button>
+                        <input type="text" id="searchBox" onKeyUp={this.onSearch} className="form-control" placeholder="search"></input>
                     </div>
                 </nav>
             </header>
-            <div>
-                {results.length > 0 ? results.map((res) => {
-                    return (<img className="img-thumbnail" src={'https://image.tmdb.org/t/p/w342/'+res.poster_path}/>)
+            <div style={{margin: 'auto', display: 'inline-flex'}}>
+                {results.length > 0 ? results.map((res,i) => {
+                    return (<Link key={i} className="d-block" to={`/${res.media_type === 'movie' ? 'movies': 'shows'}/${res.id}`}><img className="img-thumbnail hoverImgSearch" src={'https://image.tmdb.org/t/p/w342/'+res.poster_path} alt={res.title ? res.title: res.original_name} /></Link>)
                 }) : null}
             </div>
         </div>

@@ -20,3 +20,11 @@
 .img-thumbnail{
   width: 4rem;
 }
+
+.hoverImgSearch{
+  transition: width 2s;
+}
+
+.hoverImgSearch:hover{
+  width: 6rem;
+}
