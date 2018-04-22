@@ -1,6 +1,6 @@
 import * as types from '../types/shows'
 import initialState from './initialState'
-import _ from './../../node_modules/lodash'
+import _ from 'lodash'
 
 export default function showsReducer(state = initialState.shows, action){
     switch(action.type){

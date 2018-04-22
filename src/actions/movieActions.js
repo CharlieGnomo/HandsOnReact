@@ -26,14 +26,9 @@ export function loadRandomMovie(){
         fetch(`https://api.themoviedb.org/3/movie/latest?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
         .then(response => response.json())
         .then(movie => {
-            let iM = Math.floor(Math.random() * movie.id) + 30;
-            fetch(`https://api.themoviedb.org/3/movie/${iM}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
-            .then(response => response.json())
-            .then(m => dispatch(loadMovieSuccess(m)))
-            .catch(error => {
-                dispatch(loadMovieFailure())
-                alert('We could not load the page at this time.')
-            })
+            //Math.random() * (max - min) + min;
+            let iM = Math.floor(Math.random() * ((movie.id)-(30))+30);
+            dispatch(loadMovie(iM));
         })
         .catch(error => {
             dispatch(loadMovieFailure())

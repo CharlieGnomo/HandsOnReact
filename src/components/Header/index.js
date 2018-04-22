@@ -36,7 +36,7 @@ class Header extends React.Component {
 
     render() {
         const { numberOfMovies, results } = this.state
-
+        const defaultImg = 'https://d1yn1kh78jj1rr.cloudfront.net/image/preview/BZmcLqJtxiz4jw3xi/graphicstock-photographic-35-mm-film-isolated-over-transparent-background-png_BL-EkYYaqg_SB_PM.jpg';
         return (
             <div className="row">
             <header className="main-nav d-flex col-12" style={{flexDirection: 'column'}}>
@@ -67,7 +67,17 @@ class Header extends React.Component {
             <div style={{margin: 'auto', display: 'inline-flex'}}>
                 {results.length > 0 ? results.map((res,i) => {
                     if(res.media_type == 'movie' || res.media_type == 'tv'){
-                        return (<Link key={i} className="d-block" to={`/${res.media_type === 'movie' ? 'movies': 'shows'}/${res.id}`}><figure><img className="img-thumbnail hoverImgSearch" src={((res.poster_path == undefined) || (res.poster_path == null) ) ? 'https://d1yn1kh78jj1rr.cloudfront.net/image/preview/BZmcLqJtxiz4jw3xi/graphicstock-photographic-35-mm-film-isolated-over-transparent-background-png_BL-EkYYaqg_SB_PM.jpg' :'https://image.tmdb.org/t/p/w342/'+res.poster_path} alt={res.title ? res.title: res.original_name} /><figcaption className="figure-caption">{res.title ? res.title: res.original_name}</figcaption></figure></Link>)
+                        return (
+                        <Link key={i} className="d-block" to={`/${res.media_type === 'movie' ? 'movies': 'shows'}/${res.id}`}>
+                            <figure>
+                                <img className="img-thumbnail hoverImgSearch" 
+                                    src={((res.poster_path == undefined) || (res.poster_path == null) ) ? defaultImg :'https://image.tmdb.org/t/p/w342/' +res.poster_path} 
+                                    alt={res.title ? res.title: res.original_name} />
+                                <figcaption className="figure-caption">
+                                    {res.title ? res.title: res.original_name}
+                                </figcaption>
+                            </figure>
+                        </Link>)
                     }
                 }) : null}
             </div>

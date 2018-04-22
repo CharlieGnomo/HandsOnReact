@@ -1,6 +1,6 @@
 import * as types from '../types/movies'
 import initialState from './initialState'
-import _ from './../../node_modules/lodash'
+import _ from 'lodash'
 
 export default function moviesReducer(state = initialState.movies, action){
     switch(action.type){

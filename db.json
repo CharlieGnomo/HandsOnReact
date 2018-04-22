@@ -69,34 +69,31 @@
       "collection": "movie",
       "user": "Julian",
       "id": 10
+    },
+    {
+      "mediaId": "447332",
+      "body": "Añade un comentario",
+      "collection": "movie",
+      "user": "Javi",
+      "id": 11
+    },
+    {
+      "mediaId": "1418",
+      "body": "Añade un comentario de los buenos",
+      "collection": "show",
+      "user": "Javi",
+      "id": 12
     }
   ],
   "deletedFilms": [
     {
-      "movieId": "447332",
+      "movieId": "483877",
       "id": 1
-    },
-    {
-      "movieId": "321612",
-      "id": 2
-    },
-    {
-      "movieId": "353486",
-      "id": 3
     },
     {
       "movieId": "299536",
-      "id": 4
-    }
-  ],
-  "deletedShows": [
-    {
-      "showId": "1418",
-      "id": 1
-    },
-    {
-      "showId": "1403",
       "id": 2
     }
-  ]
+  ],
+  "deletedShows": []
 }
